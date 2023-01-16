@@ -8,7 +8,6 @@ app.use(express.json())
 const cors = require('cors');
 app.use(cors());
 
-const PORT = process.env.PORT
 require("./db/connection")
 
 dotenv.config({ path: "./config.env" })
@@ -125,7 +124,7 @@ app.get("*", (req, res) => {
     });
 });
 
-
-app.listen(8000, function () {
+const PORT =process.env.PORT || 8000;
+app.listen(PORT, function () {
     console.log('Example app listening on port 8000!');
 });
